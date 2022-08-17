@@ -1,0 +1,10 @@
+deployments:
+  AcmeApp:
+    filename: ./src/Dockerfile
+    context_path: ./src
+    build_options: --no-cache --secret id=sqenv,env=MYSECRET
+    port_forwarding: 80:80
+    environment:
+      - DOCKER_BUILDKIT=1
+      - MYSECRET=$MYSECRET
+
